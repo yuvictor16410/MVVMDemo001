@@ -12,10 +12,16 @@ class ScreenViewModel : ViewModel() {
     private var _binding by mutableStateOf( // use mutableStateOf to update data
         ScreenViewBinding(
             title = "Welcome to my page",
-            onClick = ::onClick,
-            buttonText = "Click Me",
-            onClick02 = ::onClick02,
-            buttonText02 = "Click Me"
+
+            buttonState01 = ScreenViewBinding.ButtonState(
+                text = "Click Me 01",
+                onClick = ::onClick
+            ),
+
+            buttonState02 = ScreenViewBinding.ButtonState(
+                text = "Click Me 02",
+                onClick = ::onClick02
+            )
         )
     )
 
@@ -31,8 +37,15 @@ class ScreenViewModel : ViewModel() {
 
     private fun onClick02(){
         _binding = _binding.copy(
-            buttonText = "Clicked",
-            buttonText02 = "Clicked"
+
+            buttonState01 = _binding.buttonState01.copy(
+                text = "Clicked 01",
+            ),
+
+            buttonState02 = _binding.buttonState02.copy(
+                text = "Clicked 02",
+            ),
+
         )
     }
 

@@ -23,12 +23,12 @@ fun Screen(binding: ScreenViewBinding){
     ){
         Text(text = binding.title)
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = binding.onClick) {
-            Text(text = binding.buttonText)
+        Button(onClick = binding.buttonState01.onClick) {
+            Text(text = binding.buttonState01.text)
         }
 
-        Button(onClick = binding.onClick02) {
-            Text(text = binding.buttonText02)
+        Button(onClick = binding.buttonState02.onClick) {
+            Text(text = binding.buttonState02.text)
         }
     }
 }
@@ -39,10 +39,17 @@ fun ScreenPreview(){
     Screen(
         binding = ScreenViewBinding(
             title = "Welcome to my page",
-            onClick = {},
-            buttonText = "Click Me",
-            onClick02 =  {},
-            buttonText02 = "Click Me",
+
+            buttonState01 = ScreenViewBinding.ButtonState(
+                text = "Clicked",
+                onClick = {}
+            ),
+
+            buttonState02 = ScreenViewBinding.ButtonState(
+                text = "Clicked",
+                onClick = {}
+            ),
+
         )
     )
 }

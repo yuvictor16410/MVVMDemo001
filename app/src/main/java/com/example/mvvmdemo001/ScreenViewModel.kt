@@ -9,11 +9,13 @@ class ScreenViewModel : ViewModel() {
 
     //1.generate the Model. -> data class, ScreenViewBinding.
 
-    private var _binding by mutableStateOf(
+    private var _binding by mutableStateOf( // use mutableStateOf to update data
         ScreenViewBinding(
             title = "Welcome to my page",
             onClick = ::onClick,
-            buttonText = "Click Me"
+            buttonText = "Click Me",
+            onClick02 = ::onClick02,
+            buttonText02 = "Click Me"
         )
     )
 
@@ -24,6 +26,13 @@ class ScreenViewModel : ViewModel() {
     private fun onClick(){
         _binding = _binding.copy(
             title = "You clicked the button"
+        )
+    }
+
+    private fun onClick02(){
+        _binding = _binding.copy(
+            buttonText = "Clicked",
+            buttonText02 = "Clicked"
         )
     }
 

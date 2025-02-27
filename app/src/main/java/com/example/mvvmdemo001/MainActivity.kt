@@ -9,13 +9,13 @@ import androidx.activity.viewModels
 
 class MainActivity : ComponentActivity() {
 
-    private val viewModel by viewModels<ScreenViewModel>()
+    private val viewModel by viewModels<ScreenViewModel>()//connects the viewmodel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Screen(binding = viewModel.binding.value)
+            Screen(binding = viewModel.binding)//connects to viewmodel to the model and the model to the view
         }
     }
 }
